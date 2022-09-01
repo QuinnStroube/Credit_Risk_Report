@@ -1,31 +1,26 @@
 # Module 12 Report Template
 
 ## Overview of the Analysis
+  This analysis takes a closer look at credit risk metrics to try and predict the creditworthiness of borrowers. Using ML models we will try and predict whether a borrower is likely a 'healthy loan' or 'high-risk loan' using a dataset of historical lending activity from a peer-to-peer lending services company.
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+  First, we preprocess the data by seperating the features and the labels to be used in the model. To check the balance of the target values, we use the value counts function on the Y variable. There is a heavy imbalance on the Y variable in the original data frame with 75,036 Healthy Loans and 2,500 High-risk Loans. Next, we train the model on the original data and make our predictions on the testing features.
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+  In the second model, we use the original preprocessed data and resample the data using the Random Over Sampler model. The model balances the Y variable so we have have an equal number of Healthy Loans and High-Risk Loans to train on. 
 
 ## Results
-
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
-
 * Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
-
-
+  * Balanced Accuracy Score: .952
+  * Precision Score 'Healthy Loans': 1.00
+  * Precision Score 'High-risk Loans': .85
+  * Recall Score 'Healthy Loans': .99
+  * Recall Score 'High-risk Loans': .91
 
 * Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+  * Balanced Accuracy Score: .995
+  * Precision Score 'Healthy Loans': .99
+  * Precision Score 'High-risk Loans': .99
+  * Recall Score 'Healthy Loans': .99
+  * Recall Score 'High-risk Loans': .99
 
 ## Summary
-
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+The results of the machine learning models tell us that the model improved after resampling. We should use model 2 to predict the creditworthiness of buyers because the recall and precision scores on the second model improved to .99 for predicting the High-risk loans. If we were trying to predict the Healthy Loans, we should use model 1 as it has a 1.00 for the precision score and .99 recall. 
